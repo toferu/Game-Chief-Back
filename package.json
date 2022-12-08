@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/xtopherman/Game-Chief-Back/issues"
   },
-  "homepage": "https://github.com/xtopherman/Game-Chief-Back#readme"
+  "homepage": "https://github.com/xtopherman/Game-Chief-Back#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.8.0"
+  }
 }

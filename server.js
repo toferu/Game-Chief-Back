@@ -40,16 +40,42 @@ app.use(express.static('public'));
 app.use(express.json());// returns middleware that only parses JSON - may or may not need it depending on your project
 
 
+// Schema 
+
+Games = require('./models/games.js')
+
 //___________________
 // Routes
 //___________________
-//localhost:3000
-app.get('/' , (req, res) => {
-  res.json({
-    test: 'whatever'
-  })
-});
 
+
+    app.post('/games', (req, res) => {
+        Games.create(req.body, (err, createdGames) => {
+        // console.log(req.body)
+        res.json(createdGames)
+        })
+    })
+   
+                             //get route grabbing all data
+   app.get('/games', (req, res) => {
+     Games.find({}, (err, foundList) => {
+       res.json(foundList)
+     })
+   })
+   
+                             //delete route..
+   app.delete('/games/:id', (req, res) => {
+     Games.findByIdAndRemove(req.params.id, (err, deletedGames) => {
+       res.json(deletedGames)
+     })
+   })
+   
+                             //put route
+   app.put('/games/:id', (req, res) => {
+     Games.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedGames) => {
+       res.json(updatedGames)
+     })
+   })
 //___________________
 //Listener
 //___________________
