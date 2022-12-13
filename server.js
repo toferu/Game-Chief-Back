@@ -5,6 +5,8 @@ const express = require('express');
 const mongoose = require ('mongoose');
 const app = express ();
 const db = mongoose.connection;
+const axios = require('axios')
+const cors = require('cors')
 require('dotenv').config()
 //___________________
 //Port
@@ -36,20 +38,32 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 
 //use public folder for static assets
 app.use(express.static('public'));
-
+app.use(cors())
 app.use(express.json());// returns middleware that only parses JSON - may or may not need it depending on your project
 
 
 // Schema 
 
-Games = require('./models/games.js')
-
+const Games = require('./models/games.js')
+let arrSeed = []
+const url = [`https://api.rawg.io/api/games?key=bd22e2296caa4c9894e666410ee4945a`]
 //___________________
 // Routes
 //___________________
 
+// for (let i = 1; i < 6; i++){
+  // axios.get(url)
+  // .then({
+  //   for (let i = 1; i < 6; i++ ){
+  //     let resArray = response.data.results
+  //     arrSeed.push(resArray[i])
+  //   } 
+  //   Games.create(arrSeed, () => {})
+  // })
 
-    app.post('/games', (req, res) => {
+
+
+    app.post('/', (req, res) => {
         Games.create(req.body, (err, createdGames) => {
         // console.log(req.body)
         res.json(createdGames)
@@ -57,7 +71,7 @@ Games = require('./models/games.js')
     })
    
                              //get route grabbing all data
-   app.get('/games', (req, res) => {
+   app.get('/', (req, res) => {
      Games.find({}, (err, foundList) => {
        res.json(foundList)
      })

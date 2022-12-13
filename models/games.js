@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
 
 const gamesSchema = new mongoose.Schema ({
+
     name : "String",
     image : "String",
-    relDate : "String",
     genre : "String",
     platform : "String"
 })
