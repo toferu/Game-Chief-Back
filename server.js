@@ -5,6 +5,9 @@ const express = require('express');
 const mongoose = require ('mongoose');
 const app = express ();
 const db = mongoose.connection;
+const cors = require('cors')
+
+
 require('dotenv').config()
 //___________________
 //Port
@@ -36,7 +39,7 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 
 //use public folder for static assets
 app.use(express.static('public'));
-
+app.use(cors())
 app.use(express.json());// returns middleware that only parses JSON - may or may not need it depending on your project
 
 
