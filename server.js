@@ -64,7 +64,7 @@ const url = [`https://api.rawg.io/api/games?key=bd22e2296caa4c9894e666410ee4945a
 
 
 
-    app.post('/', (req, res) => {
+    app.post('/games', (req, res) => {
         Games.create(req.body, (err, createdGames) => {
         // console.log(req.body)
         res.json(createdGames)
@@ -72,7 +72,7 @@ const url = [`https://api.rawg.io/api/games?key=bd22e2296caa4c9894e666410ee4945a
     })
    
                              //get route grabbing all data
-   app.get('/', (req, res) => {
+   app.get('/games', (req, res) => {
      Games.find({}, (err, foundList) => {
        res.json(foundList)
      })

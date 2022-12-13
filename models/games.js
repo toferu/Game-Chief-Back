@@ -1,11 +1,8 @@
 const mongoose = require('mongoose')
 
 const gamesSchema = new mongoose.Schema ({
+    list : [{}],
 
-    name : "String",
-    image : "String",
-    genre : "String",
-    platform : "String"
 })
 
 const Games = mongoose.model('games', gamesSchema)
