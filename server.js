@@ -74,7 +74,7 @@ const Games = require('./models/games.js')
    })
    
                              //put route
-   app.put('/games/?id', (req, res) => {
+   app.put('/games/?:id', (req, res) => {
      Games.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedGames) => {
        res.json(updatedGames)
      })
