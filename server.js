@@ -67,15 +67,15 @@ const Games = require('./models/games.js')
    })
    
                              //delete route..
-   app.delete('/games/?:id', (req, res) => {
-     Games.findByIdAndRemove(req.params.id, (err, deletedGames) => {
+   app.delete('/games/?:_id', (req, res) => {
+     Games.findByIdAndRemove(req.params._id, (err, deletedGames) => {
        res.json(deletedGames)
      })
    })
    
                              //put route
-   app.put('/games/?:id', (req, res) => {
-     Games.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedGames) => {
+   app.put('/games/?:_id', (req, res) => {
+     Games.findByIdAndUpdate(req.params._id, req.body, {new: true}, (err, updatedGames) => {
        res.json(updatedGames)
      })
    })
