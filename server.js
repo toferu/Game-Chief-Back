@@ -46,22 +46,10 @@ app.use(express.json());// returns middleware that only parses JSON - may or may
 // Schema 
 
 const Games = require('./models/games.js')
-let arrSeed = []
-const url = [`https://api.rawg.io/api/games?key=bd22e2296caa4c9894e666410ee4945a`]
+
 //___________________
 // Routes
 //___________________
-
-// for (let i = 1; i < 6; i++){
-  // axios.get(url)
-  // .then({
-  //   for (let i = 1; i < 6; i++ ){
-  //     let resArray = response.data.results
-  //     arrSeed.push(resArray[i])
-  //   } 
-  //   Games.create(arrSeed, () => {})
-  // })
-
 
 
     app.post('/games', (req, res) => {

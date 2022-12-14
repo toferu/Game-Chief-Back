@@ -5,6 +5,8 @@ const gamesSchema = new mongoose.Schema ({
 
 })
 
-const Games = mongoose.model('games', gamesSchema)
+const Games = mongoose.model('game-lists', gamesSchema)
 
 module.exports = Games
+
+//heroku please
