@@ -69,7 +69,7 @@ const Review = require('./models/review.js')
 
     app.delete('/reviews/:id', (req, res) => {
       Review.findByIdAndRemove(req.params.id, (err, deletedReview) => {
-        res.json(deletedReveiw)
+        res.json(deletedReview)
       })
     })
 
