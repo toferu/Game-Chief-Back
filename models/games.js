@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 
 const gamesSchema = new mongoose.Schema ({
+    name: "String",
     list : [{}],
 
 })
